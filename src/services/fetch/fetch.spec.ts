@@ -4,9 +4,8 @@ describe('fetch', () => {
   const url = 'https://jsonplaceholder.typicode.com/posts';
 
   it('GET', async () => {
-    const { status, data } = await fetch({ url, method: 'GET' });
+    const { status } = await fetch({ url, method: 'GET' });
 
-    console.log(data);
     expect(status).toBe(200);
   });
 
