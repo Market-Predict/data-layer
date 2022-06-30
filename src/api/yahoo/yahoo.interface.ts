@@ -1,12 +1,10 @@
 export interface YahooInterface {
-  getTicker(ticker: string, options: GetTickerOptions): Promise<string>;
+  getTicker(ticker: string, options: TickerOptions): Promise<string>;
 }
 
-type TickerInterval = '1d';
-
-export interface GetTickerOptions {
+export interface TickerOptions {
   period1: number;
   period2: number;
-  interval: TickerInterval;
-  includeAdjustedClose: 'true' | 'false';
+  interval: '1d';
+  includeAdjustedClose?: boolean;
 }

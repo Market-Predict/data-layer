@@ -6,7 +6,6 @@ describe('Yahoo API', () => {
     const data = await new Yahoo(fetch).getTicker('AAPL', {
       period1: +new Date(`2000-01-01`) / 1000,
       period2: +new Date(`2022-01-01`) / 1000,
-      includeAdjustedClose: 'true',
       interval: '1d',
     });
 
