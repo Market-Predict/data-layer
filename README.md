@@ -4,5 +4,5 @@
 
 #### Date providers 
 
+- [x] ForexClub endpoint calendar
 - [x] yahoo finance
-- [ ] google finance
