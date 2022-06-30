@@ -1,7 +1,7 @@
 {
   "name": "data-layer",
   "author": "Maxim",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "license": "NULL",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
