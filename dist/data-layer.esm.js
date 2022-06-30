@@ -799,31 +799,31 @@ var Yahoo = /*#__PURE__*/function () {
   var _proto = Yahoo.prototype;
 
   _proto.getTicker = /*#__PURE__*/function () {
-    var _getTicker = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(ticker, _ref) {
-      var period1, period2, interval, _ref$includeAdjustedC, includeAdjustedClose, url, _yield$this$fetcher, data;
+    var _getTicker = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(ticker, options) {
+      var url, _yield$this$fetcher, data;
 
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              period1 = _ref.period1, period2 = _ref.period2, interval = _ref.interval, _ref$includeAdjustedC = _ref.includeAdjustedClose, includeAdjustedClose = _ref$includeAdjustedC === void 0 ? 'true' : _ref$includeAdjustedC;
               url = new URL("https://query1.finance.yahoo.com/v7/finance/download/" + ticker);
-              url.searchParams.set('period1', String(period1));
-              url.searchParams.set('period2', String(period2));
-              url.searchParams.set('interval', interval);
-              url.searchParams.set('includeAdjustedClose', includeAdjustedClose);
-              _context.next = 8;
+              Object.entries(options).forEach(function (_ref) {
+                var key = _ref[0],
+                    value = _ref[1];
+                return url.searchParams.set(key, String(value));
+              });
+              _context.next = 4;
               return this.fetcher({
                 url: url.toString(),
                 method: 'GET'
               });
 
-            case 8:
+            case 4:
               _yield$this$fetcher = _context.sent;
               data = _yield$this$fetcher.data;
               return _context.abrupt("return", data);
 
-            case 11:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -841,5 +841,61 @@ var Yahoo = /*#__PURE__*/function () {
   return Yahoo;
 }();
 
-export { Converter, Yahoo, constants, fetch };
+var regions = ['HK', 'HU', 'MX', 'SG', 'JP', 'BR', 'IT', 'KR', 'TR', 'RO', 'CN', 'PL', 'PT', 'ID', 'SE', 'LU', 'FI', 'DE', 'AU', 'RU', 'IE', 'ZA', 'GB', 'IN', 'NL', 'CH', 'ES', 'CZ', 'FR', 'EA', 'NO', 'AT', 'CY', 'GR', 'DK', 'CA', 'US', 'NZ', 'BE'];
+
+var ForexClub = /*#__PURE__*/function () {
+  function ForexClub(fetcher) {
+    this.fetcher = fetcher;
+  }
+
+  var _proto = ForexClub.prototype;
+
+  _proto.getRegions = function getRegions() {
+    return regions;
+  };
+
+  _proto.getCalendar = /*#__PURE__*/function () {
+    var _getCalendar = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(options) {
+      var url, _yield$this$fetcher, data;
+
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = new URL('https://economcalendar.fxclub.org/api/events/');
+              Object.entries(options).forEach(function (_ref) {
+                var key = _ref[0],
+                    value = _ref[1];
+                return url.searchParams.set(key, value);
+              });
+              _context.next = 4;
+              return this.fetcher({
+                url: url.toString(),
+                method: 'GET'
+              });
+
+            case 4:
+              _yield$this$fetcher = _context.sent;
+              data = _yield$this$fetcher.data;
+              return _context.abrupt("return", data);
+
+            case 7:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function getCalendar(_x) {
+      return _getCalendar.apply(this, arguments);
+    }
+
+    return getCalendar;
+  }();
+
+  return ForexClub;
+}();
+
+export { Converter, ForexClub, Yahoo, constants, fetch };
 //# sourceMappingURL=data-layer.esm.js.map
