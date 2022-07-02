@@ -7,7 +7,7 @@ export const commodities = {
     'NATURAL GAS': 'NG.F',
   },
   metals: {
-    GOLD: 'aaa',
+    GOLD: 'GC.F',
     'HIGH GRADE COPPER': 'HG.F',
     PALLADIUM: 'PA.F',
     PLATINUM: 'PL.F',
