@@ -1,6 +1,8 @@
 export interface YahooInterface {
   getTicker(ticker: string, options: TickerOptions): Promise<string>;
-  getTickerList(type?: TickerGroups): any;
+  getTickerList(
+    type?: TickerGroups
+  ): Record<string, string> | Record<string, string>[];
 }
 
 export type TickerGroups =
