@@ -1,6 +1,13 @@
 export interface YahooInterface {
   getTicker(ticker: string, options: TickerOptions): Promise<string>;
+  getTickerList(type?: TickerGroups): any;
 }
+
+export type TickerGroups =
+  | 'commodities'
+  | 'cryptocurrencies'
+  | 'indices'
+  | 'currencies';
 
 export interface TickerOptions {
   period1: number;
