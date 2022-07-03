@@ -844,6 +844,720 @@ var Yahoo = /*#__PURE__*/function () {
   return Yahoo;
 }();
 
+var indices$1 = {
+  asia: [{
+    symbol: '^AOR',
+    name: 'ALL ORDINARIES',
+    country: 'AU'
+  }, {
+    symbol: '^HSI',
+    name: 'HANG SENG INDEX',
+    country: 'CN'
+  }, {
+    symbol: '^JCI',
+    name: 'JAKARTA COMPOSITE',
+    country: 'ID'
+  }, {
+    symbol: '^KLCI',
+    name: 'KUALA LUMPUR COMPOSITE',
+    country: 'MY'
+  }, {
+    symbol: '^KOSPI',
+    name: 'KOSPI',
+    country: 'KR'
+  }, {
+    symbol: '^NKX',
+    name: 'NIKKEI 225',
+    country: 'JP'
+  }, {
+    symbol: '^NZ50',
+    name: 'NZX 50',
+    country: 'NZ'
+  }, {
+    symbol: '^PSEI',
+    name: 'PSEI',
+    country: 'PH'
+  }, {
+    symbol: '^SET',
+    name: 'SET',
+    country: 'TH'
+  }, {
+    symbol: '^SHBS',
+    name: 'SHANGHAI B-SHARE',
+    country: 'CN'
+  }, {
+    symbol: '^SHC',
+    name: 'SHANGHAI COMPOSITE',
+    country: 'CN'
+  }, {
+    symbol: '^SNX',
+    name: 'SENSEX 30',
+    country: 'IN'
+  }, {
+    symbol: '^STI',
+    name: 'STRAITS TIMES',
+    country: 'SG'
+  }, {
+    symbol: '^TWSE',
+    name: 'TAIEX',
+    country: 'TW'
+  }],
+  europe: [{
+    symbol: 'A5.C',
+    name: 'ATX',
+    country: 'AT'
+  }, {
+    symbol: '^AEX',
+    name: 'AEX',
+    country: 'NL'
+  }, {
+    symbol: '^ATH',
+    name: 'ATHEX COMPOSITE',
+    country: 'GR'
+  }, {
+    symbol: '^BEL20',
+    name: 'BEL 20',
+    country: 'BE'
+  }, {
+    symbol: '^BET',
+    name: 'BET',
+    country: 'RO'
+  }, {
+    symbol: '^BUX',
+    name: 'BUX',
+    country: 'HU'
+  }, {
+    symbol: '^CAC',
+    name: 'CAC 40',
+    country: 'FR'
+  }, {
+    symbol: '^DAX',
+    name: 'DAX',
+    country: 'DE'
+  }, {
+    symbol: '^FMIB',
+    name: 'FTSE MIB',
+    country: 'IT'
+  }, {
+    symbol: '^FTM',
+    name: 'FTSE 250 ',
+    country: 'UK'
+  }, {
+    symbol: '^HEX',
+    name: 'OMX HELSINKI',
+    country: 'FI'
+  }, {
+    symbol: '^IBEX',
+    name: 'IBEX',
+    country: 'ES'
+  }, {
+    symbol: '^ICEX',
+    name: 'OMX ICELAND ALL SHARE',
+    country: 'IS'
+  }, {
+    symbol: '^MDAX',
+    name: 'MDAX',
+    country: 'DE'
+  }, {
+    symbol: '^MOEX',
+    name: 'MOEX',
+    country: 'RU'
+  }, {
+    symbol: '^OMXR',
+    name: 'OMX RIGA',
+    country: 'LV'
+  }, {
+    symbol: '^OMXS',
+    name: 'OMX STOCKHOLM 30',
+    country: 'SE'
+  }, {
+    symbol: '^OMXT',
+    name: 'OMX TALLINN',
+    country: 'EE'
+  }, {
+    symbol: '^OMXV',
+    name: 'OMX VILNIUS',
+    country: 'LT'
+  }, {
+    symbol: '^OSEAX',
+    name: 'OSE ALL SHARE',
+    country: 'NO'
+  }, {
+    symbol: '^PSI20',
+    name: 'PSI 20',
+    country: 'PT'
+  }, {
+    symbol: '^PX',
+    name: 'PX',
+    country: 'CZ'
+  }, {
+    symbol: '^RTS',
+    name: 'RTS',
+    country: 'RU'
+  }, {
+    symbol: '^SAX',
+    name: 'SAX',
+    country: 'SK'
+  }, {
+    symbol: '^SDXP',
+    name: 'SDAX',
+    country: 'DE'
+  }, {
+    symbol: '^SMI',
+    name: 'SWISS MARKET',
+    country: 'CH'
+  }, {
+    symbol: '^SOFIX',
+    name: 'SOFIX',
+    country: 'BG'
+  }, {
+    symbol: '^TDXP',
+    name: 'TECDAX',
+    country: 'DE'
+  }, {
+    symbol: '^UKX',
+    name: 'UK 100 CFD',
+    country: 'UK'
+  }, {
+    symbol: '^UX',
+    name: 'UX',
+    country: 'UA'
+  }, {
+    symbol: 'WIG',
+    name: 'WIG',
+    country: 'PL'
+  }, {
+    symbol: 'WIG20',
+    name: 'WIG20',
+    country: 'PL'
+  }, {
+    symbol: '^XU100',
+    name: 'XU100',
+    country: 'TR'
+  }],
+  america: [{
+    symbol: '^DJC',
+    name: 'DOW JONES COMPOSITE',
+    country: 'US'
+  }, {
+    symbol: '^DJI',
+    name: 'DOW JONES INDUSTRIAL',
+    country: 'US'
+  }, {
+    symbol: '^DJT',
+    name: 'DOW JONES TRANSPORTATION',
+    country: 'US'
+  }, {
+    symbol: '^DJU',
+    name: 'DOW JONES UTILITIES',
+    country: 'US'
+  }, {
+    symbol: '^NDQ',
+    name: 'NASDAQ COMPOSITE',
+    country: 'US'
+  }, {
+    symbol: '^NDX',
+    name: 'NASDAQ 100',
+    country: 'US'
+  }, {
+    symbol: '^SPX',
+    name: 'S&P 500',
+    country: 'US'
+  }, {
+    symbol: '^BVP',
+    name: 'BOVESPA',
+    country: 'BR'
+  }, {
+    symbol: '^IPC',
+    name: 'MEXICAN BOLSA',
+    country: 'MX'
+  }, {
+    symbol: '^IPSA',
+    name: 'IPSA',
+    country: 'CL'
+  }, {
+    symbol: '^MRV',
+    name: 'MERVAL',
+    country: 'AR'
+  }],
+  middleEast: [{
+    symbol: '^TASI',
+    name: 'TADAWUL ALL SHARE',
+    country: 'SA'
+  }]
+};
+
+var cryptocurrencies$1 = {
+  '0x': 'zrx.v',
+  '1inch Network': '1inch.v',
+  Aave: 'aave.v',
+  Algorand: 'algo.v',
+  Amp: 'amp.v',
+  Ankr: 'ankr.v',
+  ApeCoin: 'ape3.v',
+  Arweave: 'ar.v',
+  Astar: 'astr.v',
+  Audius: 'audio.v',
+  Avalanche: 'avax.v',
+  'Axie Infinity': 'axs.v',
+  BORA: 'bora.v',
+  Balancer: 'bal.v',
+  'Basic Attention Token': 'bat.v',
+  'Binance Coin': 'bnb.v',
+  BinaryX: 'bnx.v',
+  BitDAO: 'bit1.v',
+  BitTorrent: 'btt.v',
+  'Bitcoin Cash': 'bch.v',
+  'Bitcoin Gold': 'btg.v',
+  'Bitcoin SV': 'bsv.v',
+  Bitcoin: 'btc.v',
+  Cardano: 'ada.v',
+  Celo: 'celo.v',
+  Celsius: 'cel.v',
+  Chain: 'xcn1.v',
+  Chainlink: 'link.v',
+  Chiliz: 'chz.v',
+  Compound: 'comp1.v',
+  'Convex Finance': 'cvx.v',
+  Cosmos: 'atom.v',
+  'Counos X': 'ccxx.v',
+  'Crypto.com Coin': 'cro.v',
+  'Curve DAO Token': 'crv.v',
+  Dash: 'dash.v',
+  DeFiChain: 'dfi.v',
+  Decentraland: 'mana.v',
+  Decred: 'dcr.v',
+  Dogecoin: 'doge.v',
+  'EOS-USD': 'eos.v',
+  Elrond: 'egld.v',
+  'Enjin Coin': 'enj.v',
+  'Ethereum Classic': 'etc.v',
+  'Ethereum Name Service': 'ens.v',
+  Ethereum: 'eth.v',
+  'FTX Token': 'ftt.v',
+  Fantom: 'ftm.v',
+  'Filecoin ': 'fil.v',
+  Flow: 'flow.v',
+  Frax: 'frax.v',
+  Fruits: 'frts.v',
+  Gala: 'gala.v',
+  GateToken: 'gt.v',
+  Gnosis: 'gno.v',
+  Golem: 'glm.v',
+  'Green Metaverse Token': 'gmt3.v',
+  HEX: 'hex.v',
+  Harmony: 'one1.v',
+  Hedera: 'hbar.v',
+  'Helium ': 'hnt.v',
+  Hive: 'hive.v',
+  Holo: 'hot1.v',
+  Horizen: 'zen.v',
+  'Huobi Token': 'ht.v',
+  ICON: 'icx.v',
+  IOST: 'iost.v',
+  IOTA: 'miota.v',
+  'Immutable X': 'imx1.v',
+  'Internet Computer': 'icp.v',
+  IoTeX: 'iotx.v',
+  JUST: 'jst.v',
+  Kadena: 'kda.v',
+  Kava: 'kava.v',
+  Klaytn: 'klay.v',
+  'KuCoin Token': 'kcs.v',
+  Kusama: 'ksm.v',
+  'Kyber Network Crystal v2': 'knc.v',
+  LINK: 'ln.v',
+  'Lido stETH': 'steth.v',
+  Liquity: 'lusd.v',
+  Litecoin: 'ltc.v',
+  Livepeer: 'lpt.v',
+  LooksRare: 'looks.v',
+  Loopring: 'lrc.v',
+  MXC: 'mxc.v',
+  Maker: 'mkr.v',
+  Mina: 'mina.v',
+  Monero: 'xmr.v',
+  Moonbeam: 'glmr.v',
+  'NEAR Protocol ': 'near.v',
+  NEM: 'xem.v',
+  NXM: 'nxm.v',
+  Neo: 'neo.v',
+  Neutrino: 'usdn.v',
+  Nexo: 'nexo.v',
+  OKB: 'okb.v',
+  'OMG Network': 'omg.v',
+  'Oasis Network': 'rose.v',
+  Ontology: 'ont.v',
+  Osmosis: 'osmo.v',
+  'PAX Gold': 'paxg.v',
+  PancakeSwap: 'cake.v',
+  Polkadot: 'dot.v',
+  Polygon: 'matic.v',
+  Polymath: 'poly.v',
+  Qtum: 'qtum.v',
+  Quant: 'qnt.v',
+  Ravencoin: 'rvn.v',
+  'SHIBA INU': 'shib.v',
+  'SKALE Network': 'skl.v',
+  Safe: 'safe1.v',
+  Serum: 'srm.v',
+  'Siacoin ': 'sc.v',
+  Solana: 'sol.v',
+  Stacks: 'stx.v',
+  Stellar: 'xlm.v',
+  Storj: 'storj.v',
+  Swipe: 'sxp.v',
+  SwissBorg: 'chsb.v',
+  Symbol: 'xym.v',
+  Synthetix: 'snx.v',
+  THETA: 'theta.v',
+  THORChain: 'rune.v',
+  TRON: 'trx.v',
+  Terra: 'luna2.v',
+  'Tether Gold': 'xaut.v',
+  Tezos: 'xtz.v',
+  'The Graph': 'grt1.v',
+  'The Sandbox': 'sand.v',
+  'The Transfer Token': 'ttt1.v',
+  'Theta Fuel': 'tfuel.v',
+  Threshold: 't.v',
+  TitanSwap: 'titan.v',
+  Toncoin: 'toncoin.v',
+  'Trust Wallet Token': 'twt.v',
+  'UNUS SED LEO': 'leo.v',
+  Uniswap: 'uni1.v',
+  VeChain: 'vet.v',
+  WAX: 'waxp.v',
+  WEMIX: 'wemix.v',
+  'WOO Network': 'woo.v',
+  Waves: 'waves.v',
+  'XDC Network': 'xdc.v',
+  XRP: 'xrp.v',
+  Zcash: 'zec.v',
+  Zilliqa: 'zil.v',
+  eCash: 'xec.v',
+  yOUcash: 'youc.v',
+  'yearn.finance': 'yfi.v'
+};
+
+var commodities$1 = {
+  energy: {
+    'CRUDE OIL BRENT': 'CB.F',
+    'CRUDE OIL WTI': 'CL.F',
+    'ULSD NY HARBOR': 'HO.F',
+    'GASOIL LOW SULPHUR': 'LF.F',
+    'NATURAL GAS': 'NG.F'
+  },
+  metals: {
+    GOLD: 'GC.F',
+    'HIGH GRADE COPPER': 'HG.F',
+    PALLADIUM: 'PA.F',
+    PLATINUM: 'PL.F',
+    SILVER: 'SI.F'
+  },
+  grains: {
+    CORN: 'ZC.F',
+    'SOYBEAN OIL': 'ZL.F',
+    SOYBEAN: 'ZS.F',
+    WHEAT: 'ZW.F'
+  },
+  softs: {
+    COCOA: 'CC.F',
+    COFFEE: 'KC.F',
+    'ORANGE JUICE': 'OJ.F',
+    SUGAR: 'SB.F'
+  },
+  fibers: {
+    COTTON: 'CT.F'
+  }
+};
+
+var currencies$1 = [{
+  symbol: 'EURUSD',
+  name: 'EUR/USD',
+  category: 'popular'
+}, {
+  symbol: 'GBPUSD',
+  name: 'GBP/USD',
+  category: 'popular'
+}, {
+  symbol: 'AUDUSD',
+  name: 'AUD/USD',
+  category: 'popular'
+}, {
+  symbol: 'USDCHF',
+  name: 'USD/CHF',
+  category: 'popular'
+}, {
+  symbol: 'USDCHF',
+  name: 'USD/CHF',
+  category: 'popular'
+}, {
+  symbol: 'USDCAD',
+  name: 'USD/CAD',
+  category: 'popular'
+}, {
+  symbol: 'NZDUSD',
+  name: 'NZD/USD',
+  category: 'popular'
+}, {
+  symbol: 'USDJPY',
+  name: 'USD/JPY',
+  category: 'popular'
+}, {
+  symbol: 'EURJPY',
+  name: 'EUR/JPY',
+  category: 'popular'
+}, {
+  symbol: 'GBPJPY',
+  name: 'GBP/JPY',
+  category: 'popular'
+}, {
+  symbol: 'GBPUSD',
+  name: 'GBP/USD',
+  category: 'popular'
+}, {
+  symbol: 'GBPCHF',
+  name: 'GBP/CHF',
+  category: 'popular'
+}, {
+  symbol: 'EURNOK',
+  name: 'EUR/NOK',
+  category: 'popular'
+}, {
+  symbol: 'EURSEK',
+  name: 'EUR/SEK',
+  category: 'popular'
+}, {
+  symbol: 'CHFSGD',
+  name: 'CHF/SGD',
+  category: 'exotic'
+}, {
+  symbol: 'EURCNH',
+  name: 'EUR/CNH',
+  category: 'exotic'
+}, {
+  symbol: 'EURMXN',
+  name: 'EUR/MXN',
+  category: 'exotic'
+}, {
+  symbol: 'EURNOK',
+  name: 'EUR/NOK',
+  category: 'exotic'
+}, {
+  symbol: 'EURSEK',
+  name: 'EUR/SEK',
+  category: 'exotic'
+}, {
+  symbol: 'EURSGD',
+  name: 'EUR/SGD',
+  category: 'exotic'
+}, {
+  symbol: 'EURTRY',
+  name: 'EUR/TRY',
+  category: 'exotic'
+}, {
+  symbol: 'GBPSEK',
+  name: 'GBP/SEK',
+  category: 'exotic'
+}, {
+  symbol: 'NOKJPY',
+  name: 'NOK/JPY',
+  category: 'exotic'
+}, {
+  symbol: 'SGDJPY',
+  name: 'SGD/JPY',
+  category: 'exotic'
+}, {
+  symbol: 'USDCLP',
+  name: 'USD/CLP',
+  category: 'exotic'
+}, {
+  symbol: 'USDCNH',
+  name: 'USD/CNH',
+  category: 'exotic'
+}, {
+  symbol: 'USDDKK',
+  name: 'USD/DKK',
+  category: 'exotic'
+}, {
+  symbol: 'USDMXN',
+  name: 'USD/MXN',
+  category: 'exotic'
+}, {
+  symbol: 'USDNOK',
+  name: 'USD/NOK',
+  category: 'exotic'
+}, {
+  symbol: 'USDSEK',
+  name: 'USD/SEK',
+  category: 'exotic'
+}, {
+  symbol: 'USDSGD',
+  name: 'USD/SGD',
+  category: 'exotic'
+}, {
+  symbol: 'USDTRY',
+  name: 'USD/TRY',
+  category: 'exotic'
+}, {
+  symbol: 'USDZAR',
+  name: 'USD/ZAR',
+  category: 'exotic'
+}, {
+  symbol: 'AUDCAD',
+  name: 'AUD/CAD',
+  category: 'cross-courses'
+}, {
+  symbol: 'AUDCHF',
+  name: 'AUD/CHF',
+  category: 'cross-courses'
+}, {
+  symbol: 'AUDJPY',
+  name: 'AUD/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'AUDNZD',
+  name: 'AUD/NZD',
+  category: 'cross-courses'
+}, {
+  symbol: 'CADCHF',
+  name: 'CAD/CHF',
+  category: 'cross-courses'
+}, {
+  symbol: 'CADJPY',
+  name: 'CAD/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'CHFJPY',
+  name: 'CHF/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURAUD',
+  name: 'EUR/AUD',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURCAD',
+  name: 'EUR/CAD',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURCHF',
+  name: 'EUR/CHF',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURGBP',
+  name: 'EUR/GBP',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURJPY',
+  name: 'EUR/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURNZD',
+  name: 'EUR/NZD',
+  category: 'cross-courses'
+}, {
+  symbol: 'EURPLN',
+  name: 'EUR/PLN',
+  category: 'cross-courses'
+}, {
+  symbol: 'GBPAUD',
+  name: 'GBP/AUD',
+  category: 'cross-courses'
+}, {
+  symbol: 'GBPCAD',
+  name: 'GBP/CAD',
+  category: 'cross-courses'
+}, {
+  symbol: 'GBPCHF',
+  name: 'GBP/CHF',
+  category: 'cross-courses'
+}, {
+  symbol: 'GBPJPY',
+  name: 'GBP/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'GBPNZD',
+  name: 'GBP/NZD',
+  category: 'cross-courses'
+}, {
+  symbol: 'NZDCAD',
+  name: 'NZD/CAD',
+  category: 'cross-courses'
+}, {
+  symbol: 'NZDCHF',
+  name: 'NZD/CHF',
+  category: 'cross-courses'
+}, {
+  symbol: 'NZDJPY',
+  name: 'NZD/JPY',
+  category: 'cross-courses'
+}, {
+  symbol: 'USDPLN',
+  name: 'USD/PLN',
+  category: 'cross-courses'
+}];
+
+var Stooq = /*#__PURE__*/function () {
+  function Stooq(fetcher) {
+    this.fetcher = fetcher;
+  }
+
+  var _proto = Stooq.prototype;
+
+  _proto.getTickerList = function getTickerList(type) {
+    var mappedType = {
+      commodities: commodities$1,
+      cryptocurrencies: cryptocurrencies$1,
+      indices: indices$1,
+      currencies: currencies$1
+    };
+    return type ? mappedType[type] : mappedType;
+  };
+
+  _proto.getTicker = /*#__PURE__*/function () {
+    var _getTicker = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(ticker, _ref) {
+      var period1, period2, interval, includeAdjustedClose, url, _yield$this$fetcher, data;
+
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              period1 = _ref.period1, period2 = _ref.period2, interval = _ref.interval, includeAdjustedClose = _ref.includeAdjustedClose;
+              url = new URL("https://stooq.com/q/d/l/?s=" + ticker);
+              url.searchParams.set('d1', String(period1));
+              url.searchParams.set('d2', String(period2));
+              url.searchParams.set('i', String(interval));
+              url.searchParams.set('o', (includeAdjustedClose ? '1' : '0') + "000000");
+              _context.next = 8;
+              return this.fetcher({
+                url: url.toString(),
+                method: 'GET'
+              });
+
+            case 8:
+              _yield$this$fetcher = _context.sent;
+              data = _yield$this$fetcher.data;
+              return _context.abrupt("return", data);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function getTicker(_x, _x2) {
+      return _getTicker.apply(this, arguments);
+    }
+
+    return getTicker;
+  }();
+
+  return Stooq;
+}();
+
 var regions = ['HK', 'HU', 'MX', 'SG', 'JP', 'BR', 'IT', 'KR', 'TR', 'RO', 'CN', 'PL', 'PT', 'ID', 'SE', 'LU', 'FI', 'DE', 'AU', 'RU', 'IE', 'ZA', 'GB', 'IN', 'NL', 'CH', 'ES', 'CZ', 'FR', 'EA', 'NO', 'AT', 'CY', 'GR', 'DK', 'CA', 'US', 'NZ', 'BE'];
 
 var ForexClub = /*#__PURE__*/function () {
@@ -900,5 +1614,5 @@ var ForexClub = /*#__PURE__*/function () {
   return ForexClub;
 }();
 
-export { Converter, ForexClub, Yahoo, fetch };
+export { Converter, ForexClub, Stooq, Yahoo, fetch };
 //# sourceMappingURL=data-layer.esm.js.map
