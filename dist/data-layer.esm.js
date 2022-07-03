@@ -1,306 +1,5 @@
 import axios from 'axios';
 
-var indices = [{
-  name: 'Dow Jones',
-  key: "^DJI",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'NASDAQ 100',
-  key: "^NDX",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'NASDAQ Composite',
-  key: "^IXIC",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'S&P 500',
-  key: "^GSPC",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'CBOE Volatility',
-  key: "^VIX",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'US Dollar',
-  key: "DX-Y.NYB",
-  country: "US",
-  region: "North America"
-}, {
-  name: 'AEX',
-  key: "^AEX",
-  country: "NL",
-  region: "Europe"
-}, {
-  name: 'CAC 40',
-  key: "^FCH",
-  country: "FR",
-  region: "Europe"
-}, {
-  name: 'DAX',
-  key: "^GDAXI",
-  country: "DE",
-  region: "Europe"
-}, {
-  name: 'Euro Stoxx 50',
-  key: "^STOXX50E",
-  country: "DE",
-  region: "Europe"
-}, {
-  name: 'FTSE 100',
-  key: "^FTSE",
-  country: "GB",
-  region: "Europe"
-}, {
-  name: 'FTSE MIB INDEX',
-  key: "FTSEMIB.MI",
-  country: "IT",
-  region: "Europe"
-}, {
-  name: 'IBEX 35',
-  key: "^IBEX",
-  country: "ES",
-  region: "Europe"
-}, {
-  name: 'MOEX Russia',
-  key: "IMOEX.ME",
-  country: "RU",
-  region: "Europe"
-}, {
-  name: 'RTSI',
-  key: "RTSI.ME",
-  country: "RU",
-  region: "Europe"
-}, {
-  name: 'FTSE China A50',
-  key: "XIN9.FGI",
-  country: "CN",
-  region: "Asia"
-}, {
-  name: 'Hang Seng',
-  key: "^HSI",
-  country: "CN",
-  region: "Asia"
-}, {
-  name: 'Nikkei 225',
-  key: "^N225",
-  country: "JP",
-  region: "Asia"
-}];
-
-var commodities = {
-  "energy": {
-    "Crude Oil": "CL=F",
-    "Brent Crude Oil": "BZ=F",
-    "Natural Gas": "NG=F",
-    "Heating Oil": "HO=F"
-  },
-  metals: {
-    "Gold": "GC=F",
-    "Silver": "SI=F",
-    "Copper": "HG=F",
-    "Platinum": "PA=F"
-  },
-  agriculture: {
-    "Coffee": "KC=F",
-    "Corn": "ZC=F",
-    "Wheat": "KE=F",
-    "Sugar": "SB=F",
-    "Cotton": "CT=F",
-    "Cocoa": "CC=F"
-  }
-};
-
-var cryptocurrencies = {
-  "Bitcoin USD": "BTC-USD",
-  "Ethereum USD": "ETH-USD",
-  "Binance Coin USD": "BNB-USD",
-  "XRP USD": "XRP-USD",
-  "Cardano USD": "ADA-USD",
-  "Solana USD": "SOL-USD",
-  "Dogecoin USD": "DOGE-USD",
-  "Polkadot USD": "DOT-USD",
-  "HEX USD": "HEX-USD",
-  "TRON USD": "TRX-USD",
-  "SHIBA INU USD": "SHIB-USD",
-  "UNUS SED LEO USD": "LEO-USD",
-  "Avalanche USD": "AVAX-USD",
-  "Polygon USD": "MATIC-USD",
-  "yOUcash USD": "YOUC-USD",
-  "Uniswap USD": "UNI1-USD",
-  "Litecoin USD": "LTC-USD",
-  "Lido stETH USD": "STETH-USD",
-  "FTX Token USD": "FTT-USD",
-  "Chainlink USD": "LINK-USD",
-  "Stellar USD": "XLM-USD",
-  "Crypto.com Coin USD": "CRO-USD",
-  "NEAR Protocol USD	": "NEAR-USD",
-  "Algorand USD": "ALGO-USD",
-  "Cosmos USD": "ATOM-USD",
-  "Monero USD": "XMR-USD",
-  "Bitcoin Cash USD": "BCH-USD",
-  "Ethereum Classic USD": "ETC-USD",
-  "Chain USD": "XCN1-USD",
-  "VeChain USD": "VET-USD",
-  "Flow USD": "FLOW-USD",
-  "Decentraland USD": "MANA-USD",
-  "Hedera USD": "HBAR-USD",
-  "Internet Computer USD": "ICP-USD",
-  "THETA USD": "THETA-USD",
-  "Elrond USD": "EGLD-USD",
-  "Frax USD": "FRAX-USD",
-  "Axie Infinity USD": "AXS-USD",
-  "Toncoin USD": "TONCOIN-USD",
-  "The Sandbox USD": "SAND-USD",
-  "ApeCoin USD": "APE3-USD",
-  "Tezos USD": "XTZ-USD",
-  "Filecoin USD	": "FIL-USD",
-  "Helium USD	": "HNT-USD",
-  "Bitcoin SV USD": "BSV-USD",
-  "KuCoin Token USD": "KCS-USD",
-  "EOS-USD": "EOS USD",
-  "Zcash USD": "ZEC-USD",
-  "Maker USD": "MKR-USD",
-  "Aave USD": "AAVE-USD",
-  "IOTA USD": "MIOTA-USD",
-  "Huobi Token USD": "HT-USD",
-  "eCash USD": "XEC-USD",
-  "Neutrino USD USD": "USDN-USD",
-  "The Graph USD": "GRT1-USD",
-  "OKB USD": "OKB-USD",
-  "Liquity USD USD": "LUSD-USD",
-  "THORChain USD": "RUNE-USD",
-  "Klaytn USD": "KLAY-USD",
-  "Fantom USD": "FTM-USD",
-  "Waves USD": "WAVES-USD",
-  "Neo USD": "NEO-USD",
-  "Quant USD": "QNT-USD",
-  "Basic Attention Token USD": "BAT-USD",
-  "PAX Gold USD": "PAXG-USD",
-  "Chiliz USD": "CHZ-USD",
-  "Zilliqa USD": "ZIL-USD",
-  "BitTorrent USD": "BTT-USD",
-  "Loopring USD": "LRC-USD",
-  "Dash USD": "DASH-USD",
-  "Stacks USD": "STX-USD",
-  "DeFiChain USD": "DFI-USD",
-  "PancakeSwap USD": "CAKE-USD",
-  "Green Metaverse Token USD": "GMT3-USD",
-  "Enjin Coin USD": "ENJ-USD",
-  "Kusama USD": "KSM-USD",
-  "Tether Gold USD": "XAUT-USD",
-  "Fruits USD": "FRTS-USD",
-  "Curve DAO Token USD": "CRV-USD",
-  "Gala USD": "GALA-USD",
-  "Celo USD": "CELO-USD",
-  "Amp USD": "AMP-USD",
-  "Holo USD": "HOT1-USD",
-  "Kava USD": "KAVA-USD",
-  "1inch Network USD": "1INCH-USD",
-  "Nexo USD": "NEXO-USD",
-  "NEM USD": "XEM-USD",
-  "Storj USD": "STORJ-USD",
-  "XDC Network USD": "XDC-USD",
-  "Safe USD": "SAFE1-USD",
-  "Mina USD": "MINA-USD",
-  "WEMIX USD": "WEMIX-USD",
-  "Synthetix USD": "SNX-USD",
-  "Decred USD": "DCR-USD",
-  "Counos X USD": "CCXX-USD",
-  "Arweave USD": "AR-USD",
-  "GateToken USD": "GT-USD",
-  "Kadena USD": "KDA-USD",
-  "Qtum USD": "QTUM-USD",
-  "Symbol USD": "XYM-USD",
-  "Gnosis USD": "GNO-USD",
-  "Compound USD": "COMP1-USD",
-  "Threshold USD": "T-USD",
-  "Bitcoin Gold USD": "BTG-USD",
-  "Harmony USD": "ONE1-USD",
-  "Convex Finance USD": "CVX-USD",
-  "BORA USD": "BORA-USD",
-  "Theta Fuel USD": "TFUEL-USD",
-  "IOST USD": "IOST-USD",
-  "OMG Network USD": "OMG-USD",
-  "IoTeX USD": "IOTX-USD",
-  "Audius USD": "AUDIO-USD",
-  "Oasis Network USD": "ROSE-USD",
-  "ICON USD": "ICX-USD",
-  "BinaryX USD": "BNX-USD",
-  "The Transfer Token USD": "TTT1-USD",
-  "BitDAO USD": "BIT1-USD",
-  "Kyber Network Crystal v2 USD": "KNC-USD",
-  "TitanSwap USD": "TITAN-USD",
-  "Ravencoin USD": "RVN-USD",
-  "Ankr USD": "ANKR-USD",
-  "Celsius USD": "CEL-USD",
-  "0x USD": "ZRX-USD",
-  "Trust Wallet Token USD": "TWT-USD",
-  "NXM USD": "NXM-USD",
-  "Osmosis USD": "OSMO-USD",
-  "Serum USD": "SRM-USD",
-  "Golem USD": "GLM-USD",
-  "Terra USD": "LUNA2-USD",
-  "WOO Network USD": "WOO-USD",
-  "MXC USD": "MXC-USD",
-  "LINK USD": "LN-USD",
-  "Balancer USD": "BAL-USD",
-  "JUST USD": "JST-USD",
-  "Livepeer USD": "LPT-USD",
-  "Ontology USD": "ONT-USD",
-  "Swipe USD": "SXP-USD",
-  "Siacoin USD	": "SC-USD",
-  "SKALE Network USD": "SKL-USD",
-  "WAX USD": "WAXP-USD",
-  "yearn.finance USD": "YFI-USD",
-  "Moonbeam USD": "GLMR-USD",
-  "Immutable X USD": "IMX1-USD",
-  "SwissBorg USD": "CHSB-USD",
-  "Horizen USD": "ZEN-USD",
-  "Ethereum Name Service USD": "ENS-USD",
-  "Astar USD": "ASTR-USD",
-  "LooksRare USD": "LOOKS-USD",
-  "Hive USD": "HIVE-USD",
-  "Polymath USD": "POLY-USD"
-};
-
-var currencies = {
-  "EUR/USD": "EURUSD=X",
-  "USD/JPY": "JPY=X",
-  "GBP/USD": "GBPUSD=X",
-  "AUD/USD": "AUDUSD=X",
-  "NZD/USD": "NZDUSD=X",
-  "EUR/JPY": "EURJPY=X",
-  "GBP/JPY": "GBPJPY=X",
-  "EUR/GBP": "EURGBP=X",
-  "EUR/CAD": "EURCAD=X",
-  "EUR/SEK": "EURSEK=X",
-  "EUR/CHF": "EURCHF=X",
-  "EUR/HUF": "EURHUF=X",
-  "USD/CNY": "CNY=X",
-  "USD/HKD": "HKD=X",
-  "USD/SGD": "SGD=X",
-  "USD/INR": "INR=X",
-  "USD/MXN": "MXN=X",
-  "USD/PHP": "PHP=X",
-  "USD/IDR": "IDR=X",
-  "USD/THB": "THB=X",
-  "USD/MYR": "IDR=X",
-  "USD/ZAR": "ZAR=X",
-  "USD/RUB": "RUB=X"
-};
-
-var constants = {
-  indices: indices,
-  commodities: commodities,
-  cryptocurrencies: cryptocurrencies,
-  currencies: currencies
-};
-
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
@@ -791,12 +490,316 @@ var Converter = /*#__PURE__*/function () {
   return Converter;
 }();
 
+var commodities = {
+  "energy": {
+    "Crude Oil": "CL=F",
+    "Brent Crude Oil": "BZ=F",
+    "Natural Gas": "NG=F",
+    "Heating Oil": "HO=F"
+  },
+  metals: {
+    "Gold": "GC=F",
+    "Silver": "SI=F",
+    "Copper": "HG=F",
+    "Platinum": "PA=F"
+  },
+  agriculture: {
+    "Coffee": "KC=F",
+    "Corn": "ZC=F",
+    "Wheat": "KE=F",
+    "Sugar": "SB=F",
+    "Cotton": "CT=F",
+    "Cocoa": "CC=F"
+  }
+};
+
+var cryptocurrencies = {
+  Bitcoin: 'BTC-USD',
+  Ethereum: 'ETH-USD',
+  'Binance Coin': 'BNB-USD',
+  XRP: 'XRP-USD',
+  Cardano: 'ADA-USD',
+  Solana: 'SOL-USD',
+  Dogecoin: 'DOGE-USD',
+  Polkadot: 'DOT-USD',
+  HEX: 'HEX-USD',
+  TRON: 'TRX-USD',
+  'SHIBA INU': 'SHIB-USD',
+  'UNUS SED LEO': 'LEO-USD',
+  Avalanche: 'AVAX-USD',
+  Polygon: 'MATIC-USD',
+  yOUcash: 'YOUC-USD',
+  Uniswap: 'UNI1-USD',
+  Litecoin: 'LTC-USD',
+  'Lido stETH': 'STETH-USD',
+  'FTX Token': 'FTT-USD',
+  Chainlink: 'LINK-USD',
+  Stellar: 'XLM-USD',
+  'Crypto.com Coin': 'CRO-USD',
+  'NEAR Protocol	': 'NEAR-USD',
+  Algorand: 'ALGO-USD',
+  Cosmos: 'ATOM-USD',
+  Monero: 'XMR-USD',
+  'Bitcoin Cash': 'BCH-USD',
+  'Ethereum Classic': 'ETC-USD',
+  Chain: 'XCN1-USD',
+  VeChain: 'VET-USD',
+  Flow: 'FLOW-USD',
+  Decentraland: 'MANA-USD',
+  Hedera: 'HBAR-USD',
+  'Internet Computer': 'ICP-USD',
+  THETA: 'THETA-USD',
+  Elrond: 'EGLD-USD',
+  Frax: 'FRAX-USD',
+  'Axie Infinity': 'AXS-USD',
+  Toncoin: 'TONCOIN-USD',
+  'The Sandbox': 'SAND-USD',
+  ApeCoin: 'APE3-USD',
+  Tezos: 'XTZ-USD',
+  'Filecoin	': 'FIL-USD',
+  'Helium	': 'HNT-USD',
+  'Bitcoin SV': 'BSV-USD',
+  'KuCoin Token': 'KCS-USD',
+  'EOS-USD': 'EOS',
+  Zcash: 'ZEC-USD',
+  Maker: 'MKR-USD',
+  Aave: 'AAVE-USD',
+  IOTA: 'MIOTA-USD',
+  'Huobi Token': 'HT-USD',
+  eCash: 'XEC-USD',
+  Neutrino: 'USDN-USD',
+  'The Graph': 'GRT1-USD',
+  OKB: 'OKB-USD',
+  Liquity: 'LUSD-USD',
+  THORChain: 'RUNE-USD',
+  Klaytn: 'KLAY-USD',
+  Fantom: 'FTM-USD',
+  Waves: 'WAVES-USD',
+  Neo: 'NEO-USD',
+  Quant: 'QNT-USD',
+  'Basic Attention Token': 'BAT-USD',
+  'PAX Gold': 'PAXG-USD',
+  Chiliz: 'CHZ-USD',
+  Zilliqa: 'ZIL-USD',
+  BitTorrent: 'BTT-USD',
+  Loopring: 'LRC-USD',
+  Dash: 'DASH-USD',
+  Stacks: 'STX-USD',
+  DeFiChain: 'DFI-USD',
+  PancakeSwap: 'CAKE-USD',
+  'Green Metaverse Token': 'GMT3-USD',
+  'Enjin Coin': 'ENJ-USD',
+  Kusama: 'KSM-USD',
+  'Tether Gold': 'XAUT-USD',
+  Fruits: 'FRTS-USD',
+  'Curve DAO Token': 'CRV-USD',
+  Gala: 'GALA-USD',
+  Celo: 'CELO-USD',
+  Amp: 'AMP-USD',
+  Holo: 'HOT1-USD',
+  Kava: 'KAVA-USD',
+  '1inch Network': '1INCH-USD',
+  Nexo: 'NEXO-USD',
+  NEM: 'XEM-USD',
+  Storj: 'STORJ-USD',
+  'XDC Network': 'XDC-USD',
+  Safe: 'SAFE1-USD',
+  Mina: 'MINA-USD',
+  WEMIX: 'WEMIX-USD',
+  Synthetix: 'SNX-USD',
+  Decred: 'DCR-USD',
+  'Counos X': 'CCXX-USD',
+  Arweave: 'AR-USD',
+  GateToken: 'GT-USD',
+  Kadena: 'KDA-USD',
+  Qtum: 'QTUM-USD',
+  Symbol: 'XYM-USD',
+  Gnosis: 'GNO-USD',
+  Compound: 'COMP1-USD',
+  Threshold: 'T-USD',
+  'Bitcoin Gold': 'BTG-USD',
+  Harmony: 'ONE1-USD',
+  'Convex Finance': 'CVX-USD',
+  BORA: 'BORA-USD',
+  'Theta Fuel': 'TFUEL-USD',
+  IOST: 'IOST-USD',
+  'OMG Network': 'OMG-USD',
+  IoTeX: 'IOTX-USD',
+  Audius: 'AUDIO-USD',
+  'Oasis Network': 'ROSE-USD',
+  ICON: 'ICX-USD',
+  BinaryX: 'BNX-USD',
+  'The Transfer Token': 'TTT1-USD',
+  BitDAO: 'BIT1-USD',
+  'Kyber Network Crystal v2': 'KNC-USD',
+  TitanSwap: 'TITAN-USD',
+  Ravencoin: 'RVN-USD',
+  Ankr: 'ANKR-USD',
+  Celsius: 'CEL-USD',
+  '0x': 'ZRX-USD',
+  'Trust Wallet Token': 'TWT-USD',
+  NXM: 'NXM-USD',
+  Osmosis: 'OSMO-USD',
+  Serum: 'SRM-USD',
+  Golem: 'GLM-USD',
+  Terra: 'LUNA2-USD',
+  'WOO Network': 'WOO-USD',
+  MXC: 'MXC-USD',
+  LINK: 'LN-USD',
+  Balancer: 'BAL-USD',
+  JUST: 'JST-USD',
+  Livepeer: 'LPT-USD',
+  Ontology: 'ONT-USD',
+  Swipe: 'SXP-USD',
+  'Siacoin	': 'SC-USD',
+  'SKALE Network': 'SKL-USD',
+  WAX: 'WAXP-USD',
+  'yearn.finance': 'YFI-USD',
+  Moonbeam: 'GLMR-USD',
+  'Immutable X': 'IMX1-USD',
+  SwissBorg: 'CHSB-USD',
+  Horizen: 'ZEN-USD',
+  'Ethereum Name Service': 'ENS-USD',
+  Astar: 'ASTR-USD',
+  LooksRare: 'LOOKS-USD',
+  Hive: 'HIVE-USD',
+  Polymath: 'POLY-USD'
+};
+
+var indices = [{
+  name: 'Dow Jones',
+  symbol: '^DJI',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'NASDAQ 100',
+  symbol: '^NDX',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'NASDAQ Composite',
+  symbol: '^IXIC',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'S&P 500',
+  symbol: '^GSPC',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'CBOE Volatility',
+  symbol: '^VIX',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'US Dollar',
+  symbol: 'DX-Y.NYB',
+  country: 'US',
+  region: 'North America'
+}, {
+  name: 'AEX',
+  symbol: '^AEX',
+  country: 'NL',
+  region: 'Europe'
+}, {
+  name: 'CAC 40',
+  symbol: '^FCH',
+  country: 'FR',
+  region: 'Europe'
+}, {
+  name: 'DAX',
+  symbol: '^GDAXI',
+  country: 'DE',
+  region: 'Europe'
+}, {
+  name: 'Euro Stoxx 50',
+  symbol: '^STOXX50E',
+  country: 'DE',
+  region: 'Europe'
+}, {
+  name: 'FTSE 100',
+  symbol: '^FTSE',
+  country: 'GB',
+  region: 'Europe'
+}, {
+  name: 'FTSE MIB INDEX',
+  symbol: 'FTSEMIB.MI',
+  country: 'IT',
+  region: 'Europe'
+}, {
+  name: 'IBEX 35',
+  symbol: '^IBEX',
+  country: 'ES',
+  region: 'Europe'
+}, {
+  name: 'MOEX Russia',
+  symbol: 'IMOEX.ME',
+  country: 'RU',
+  region: 'Europe'
+}, {
+  name: 'RTSI',
+  symbol: 'RTSI.ME',
+  country: 'RU',
+  region: 'Europe'
+}, {
+  name: 'FTSE China A50',
+  symbol: 'XIN9.FGI',
+  country: 'CN',
+  region: 'Asia'
+}, {
+  name: 'Hang Seng',
+  symbol: '^HSI',
+  country: 'CN',
+  region: 'Asia'
+}, {
+  name: 'Nikkei 225',
+  symbol: '^N225',
+  country: 'JP',
+  region: 'Asia'
+}];
+
+var currencies = {
+  "EUR/USD": "EURUSD=X",
+  "USD/JPY": "JPY=X",
+  "GBP/USD": "GBPUSD=X",
+  "AUD/USD": "AUDUSD=X",
+  "NZD/USD": "NZDUSD=X",
+  "EUR/JPY": "EURJPY=X",
+  "GBP/JPY": "GBPJPY=X",
+  "EUR/GBP": "EURGBP=X",
+  "EUR/CAD": "EURCAD=X",
+  "EUR/SEK": "EURSEK=X",
+  "EUR/CHF": "EURCHF=X",
+  "EUR/HUF": "EURHUF=X",
+  "USD/CNY": "CNY=X",
+  "USD/HKD": "HKD=X",
+  "USD/SGD": "SGD=X",
+  "USD/INR": "INR=X",
+  "USD/MXN": "MXN=X",
+  "USD/PHP": "PHP=X",
+  "USD/IDR": "IDR=X",
+  "USD/THB": "THB=X",
+  "USD/MYR": "IDR=X",
+  "USD/ZAR": "ZAR=X",
+  "USD/RUB": "RUB=X"
+};
+
 var Yahoo = /*#__PURE__*/function () {
   function Yahoo(fetcher) {
     this.fetcher = fetcher;
   }
 
   var _proto = Yahoo.prototype;
+
+  _proto.getTickerList = function getTickerList(type) {
+    var mappedType = {
+      commodities: commodities,
+      cryptocurrencies: cryptocurrencies,
+      indices: indices,
+      currencies: currencies
+    };
+    return type ? mappedType[type] : mappedType;
+  };
 
   _proto.getTicker = /*#__PURE__*/function () {
     var _getTicker = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(ticker, options) {
@@ -897,5 +900,5 @@ var ForexClub = /*#__PURE__*/function () {
   return ForexClub;
 }();
 
-export { Converter, ForexClub, Yahoo, constants, fetch };
+export { Converter, ForexClub, Yahoo, fetch };
 //# sourceMappingURL=data-layer.esm.js.map

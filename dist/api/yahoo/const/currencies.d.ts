@@ -1,0 +1,25 @@
+export declare const currencies: {
+    "EUR/USD": string;
+    "USD/JPY": string;
+    "GBP/USD": string;
+    "AUD/USD": string;
+    "NZD/USD": string;
+    "EUR/JPY": string;
+    "GBP/JPY": string;
+    "EUR/GBP": string;
+    "EUR/CAD": string;
+    "EUR/SEK": string;
+    "EUR/CHF": string;
+    "EUR/HUF": string;
+    "USD/CNY": string;
+    "USD/HKD": string;
+    "USD/SGD": string;
+    "USD/INR": string;
+    "USD/MXN": string;
+    "USD/PHP": string;
+    "USD/IDR": string;
+    "USD/THB": string;
+    "USD/MYR": string;
+    "USD/ZAR": string;
+    "USD/RUB": string;
+};
