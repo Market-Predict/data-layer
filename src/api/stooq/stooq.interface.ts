@@ -1,4 +1,4 @@
-export interface YahooInterface {
+export interface StooqInterface {
   getTicker(ticker: string, options: TickerOptions): Promise<string>;
   getTickerList(type?: TickerGroups): any;
 }
@@ -12,6 +12,6 @@ export type TickerGroups =
 export interface TickerOptions {
   period1: number;
   period2: number;
-  interval: '1d';
+  interval: 'd';
   includeAdjustedClose?: boolean;
 }

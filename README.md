@@ -6,3 +6,4 @@
 
 - [x] ForexClub endpoint calendar
 - [x] yahoo finance
+- [x] stooq
