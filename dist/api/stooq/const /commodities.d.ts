@@ -2,18 +2,16 @@ export declare const commodities: {
     energy: {
         'CRUDE OIL BRENT': string;
         'CRUDE OIL WTI': string;
-        'ULSD NY HARBOR': string;
-        'GASOIL LOW SULPHUR': string;
         'NATURAL GAS': string;
     };
     metals: {
         GOLD: string;
-        'HIGH GRADE COPPER': string;
+        COPPER: string;
         PALLADIUM: string;
         PLATINUM: string;
         SILVER: string;
     };
-    grains: {
+    agriculture: {
         CORN: string;
         'SOYBEAN OIL': string;
         SOYBEAN: string;
@@ -24,8 +22,5 @@ export declare const commodities: {
         COFFEE: string;
         'ORANGE JUICE': string;
         SUGAR: string;
-    };
-    fibers: {
-        COTTON: string;
     };
 };

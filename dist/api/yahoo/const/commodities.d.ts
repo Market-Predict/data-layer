@@ -1,22 +1,26 @@
 export declare const commodities: {
     energy: {
-        "Crude Oil": string;
-        "Brent Crude Oil": string;
-        "Natural Gas": string;
-        "Heating Oil": string;
+        'CRUDE OIL BRENT': string;
+        'CRUDE OIL WTI': string;
+        'NATURAL GAS': string;
     };
     metals: {
-        Gold: string;
-        Silver: string;
-        Copper: string;
-        Platinum: string;
+        GOLD: string;
+        COPPER: string;
+        PALLADIUM: string;
+        SILVER: string;
+        PLATINUM: string;
     };
     agriculture: {
-        Coffee: string;
-        Corn: string;
-        Wheat: string;
-        Sugar: string;
-        Cotton: string;
-        Cocoa: string;
+        CORN: string;
+        'SOYBEAN OIL': string;
+        SOYBEAN: string;
+        WHEAT: string;
+    };
+    softs: {
+        COCOA: string;
+        COFFEE: string;
+        'ORANGE JUICE': string;
+        SUGAR: string;
     };
 };
