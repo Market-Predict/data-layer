@@ -2,18 +2,16 @@ export const commodities = {
   energy: {
     'CRUDE OIL BRENT': 'CB.F',
     'CRUDE OIL WTI': 'CL.F',
-    'ULSD NY HARBOR': 'HO.F',
-    'GASOIL LOW SULPHUR': 'LF.F',
     'NATURAL GAS': 'NG.F',
   },
   metals: {
     GOLD: 'GC.F',
-    'HIGH GRADE COPPER': 'HG.F',
+    COPPER: 'HG.F',
     PALLADIUM: 'PA.F',
     PLATINUM: 'PL.F',
     SILVER: 'SI.F',
   },
-  grains: {
+  agriculture: {
     CORN: 'ZC.F',
     'SOYBEAN OIL': 'ZL.F',
     SOYBEAN: 'ZS.F',
@@ -24,8 +22,5 @@ export const commodities = {
     COFFEE: 'KC.F',
     'ORANGE JUICE': 'OJ.F',
     SUGAR: 'SB.F',
-  },
-  fibers: {
-    COTTON: 'CT.F',
   },
 };
